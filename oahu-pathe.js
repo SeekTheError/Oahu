@@ -2,10 +2,7 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
 
 var OahuPathe = function(appId, patheUserId, opts) {
   var self = this;
-  if (!Oahu) {
-    return false;
-  }
-  this.appId        = appId;
+  this.appId = appId;
   
   if (patheUserId != "" && patheUserId != "0") {
     this.patheUserId  = patheUserId;
@@ -37,7 +34,7 @@ var OahuPathe = function(appId, patheUserId, opts) {
 
 OahuPathe.prototype.onInit = function () {
   var self = this;
-  jQuery('.oahu_logged_out').show();
+  // jQuery('.oahu_logged_out').show();
   jQuery('.oahu_register').live('click', function() {
     self.proceedToRegistration = true;
     if (!self.isLogged) {
@@ -83,7 +80,7 @@ OahuPathe.prototype.createDrupalAccount = function() {
       self.drupalAccountCreated = true;
       var registrationData = {
         oahuAccount: self.oahuAccount,
-        facebookAccount: fb_account          
+        facebookAccount: fb_account
       };
       console.warn("PATHE >> INSIDE getInfos callback with data: ", registrationData);
       jQuery.ajax({
@@ -93,12 +90,10 @@ OahuPathe.prototype.createDrupalAccount = function() {
         data: registrationData,
         success: function(response) {
           console.warn("PATHE >> [DRUPAL] Success response: ", arguments);
-          alert('success');
           self.proceedToRegistration = false;
         },
         error: function(response) {
           console.warn("PATHE >> [DRUPAL] Error response: ", arguments);
-          alert('fail');
         }
       });      
     }

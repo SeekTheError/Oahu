@@ -1,0 +1,162 @@
+.register{
+	display: none;
+}
+.account, .account .register{
+	z-index: 20000;
+}
+.password-strength,.password-strength-text, .password-strength-title,.password-indicator{
+	margin:0px;
+	padding:0px;
+	height:0px;
+	display: none;
+}
+div.onTop{
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0.95;
+	display: none;
+	background-image: url('../images/rollover.png');
+	z-index: 104px;
+	width: 175px;
+	height: 242px;
+	padding: 9px;
+}
+div.onTopAv{
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0.95;
+	display: none;
+	background-image: url('../images/rollover-av.jpg');
+	z-index: 100px;
+	width: 168px;
+	height: 110px;
+	padding: 5px 2px;
+}
+div.dvd_box div.onTop{
+	padding-top: 10px;
+	top: -1px;
+	left: -1px;
+}
+div.innerTop{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+ul#affiche_list div.innerTop ul.topiclist,
+ul#catalogue_list div.innerTop ul.topiclist
+div.dvd_box div.innerTop ul.topiclist,
+ul#av_list ul.topiclist{
+	width:151px !important;
+	padding:0 10px !important;
+	margin: 0px;
+}
+ul#av_list ul.topiclist{
+	padding: 0px !important;
+}
+ul#catalogue_list div.innerTop ul.topiclist {
+    height: 80px;
+}
+
+ul#affiche_list div.innerTop ul.topiclist li,
+ul#catalogue_list div.innerTop ul.topiclist li,
+div.dvd_box div.innerTop ul.topiclist li,
+ul#av_list ul.topiclist li{
+	border-bottom:1px solid #3b3b3e;
+	padding:8px 0 9px;
+	vertical-align:top;
+	float:none;
+	display:block;
+	height:12px;
+	width: 151px !important;
+	font-weight:bold;
+	line-height:12px;
+}
+ul#catalogue_list div.innerTop ul.topiclist li {
+    border-left:none;
+}
+
+ul#catalogue_list div.innerTop ul.topiclist li a{
+    height: 12px;
+}
+ul#av_list ul.topiclist li{
+	border: none;
+	padding-bottom: 0;
+}
+
+ul#affiche_list div.innerTop ul.topiclist a,
+ul#catalogue_list div.innerTop ul.topiclist a,
+div.dvd_box div.innerTop ul.topiclist a,
+ul#av_list ul.topiclist a{
+	padding:0 0 0 17px;
+	background:url(../images/ico.png) no-repeat 0 1px;
+	height:12px;
+}
+ul#affiche_list div.innerTop ul.topiclist a.fiche,
+ul#catalogue_list div.innerTop ul.topiclist a.fiche,
+div.dvd_box div.innerTop ul.topiclist a.fiche,
+ul#av_list ul.topiclist a.fiche{
+	background-position:0 -14px;
+}
+ul#affiche_list div.innerTop ul.topiclist a.film,
+ul#catalogue_list div.innerTop ul.topiclist a.film,
+div.dvd_box div.innerTop ul.topiclist a.film,
+ul#av_list ul.topiclist a.film{
+	background-position:0 -29px;
+}
+
+ul#affiche_list div.innerTop div.social,
+ul#catalogue_list div.innerTop div.social,
+div.dvd_box div.innerTop div.social,
+ul#av_list div.innerTop div.social{
+	text-align: center;
+	padding-top: 10px;
+}
+ul#affiche_list ul.affiche_list img,
+div.dvd_box ul img{
+	margin: 0;
+}
+table.filmOveray{
+	height: 240px;
+}
+table.filmOveray.avOveray{
+	height: 100px;
+}
+table.filmOveray tbody{
+	vertical-align: top;
+	border: none;
+}
+
+table.filmOveray p{
+	font-weight: normal;
+}
+div.dvd_box{
+	position: relative;
+	border: 1px solid #C1C1C1;
+    height: 238px;
+    margin-bottom: 6px;
+    padding: 10px;
+    width: 170px;
+    z-index: 1;
+}
+ul#dvd_vod_list ul li{
+	margin-right: 1px;
+}
+
+ul#dvd_vod_list ul li:first-child .inner{
+	border: none;
+}
+p.title_overlay{
+	font-size: 13px;
+}
+p.title_overlay_film{
+	font-size: 15px;
+}
+p.title_overlay span{
+	font-weight: bold;
+	text-transform: uppercase;
+}
+div#videoplayer{
+	height: 482px;
+}
