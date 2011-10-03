@@ -57,7 +57,7 @@ class OahuClient {
         return false;
       }
       
-      $at = $account_object['access_token'];
+      $at = $account_object['code'];
       $sd = $account_object['sig_date'];
       $ai = $account_object['_id'];
       $sc = $this->consumerSecret;

@@ -47,13 +47,11 @@ require("config.inc.php");
 <script type="text/javascript" src="<?php echo $config["oahu_js_url"]; ?>"></script>
 <script type="text/javascript">
 <!--//--><![CDATA[//><!--
-
-	var $ = jQuery;
+  var $ = jQuery;
 	var oahuPathe;
 	jQuery(document).ready(function() {
 		oahuPathe = new OahuPathe("<?php echo $config['consumer_id']; ?>", "<?php echo currentUserId(); ?>", { environment: "<?php echo $config['environment']?>" });
 	});
-
 //--><!]]>
 </script>
 <script type="text/javascript" src="/pathe/modules/user/user.js?lsa00d"></script>
@@ -81,10 +79,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/pathe\/","pathPrefix":"","ajaxPage
 <li class="menu-600 last active"><a href="/pathe/" title="" class="active">Dvd-vod</a></li>
 </ul></div>
 <!-- /#main-menu --> <div class="search-block">
-	<div>
-		<a class="oahu_logged_in oahu_register"	id="oahu_user" href="#"></a> 
-		<a class="oahu_logged_out oahu_register" id="oahu_connect" href="#">S'identifier avec fb</a>
-	</div>
+  <?php require('templates/oahu_box.php'); ?>
 <!--<div class="button"><a href="#register2" class="link-popup"-->
 <!--	id="sidentifier">S'identifier</a> / <a href="#signup"-->
 <!--	class="link-popup" id="sinscrire">S'inscrire</a></div>-->

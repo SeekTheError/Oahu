@@ -17,42 +17,48 @@ var OahuPathe = function(appId, patheUserId, opts) {
     defaultBasePath = "";
   }
   
-  this.options = jQuery.extend({
-    basePath: defaultBasePath
-  }, opts);
+  this.options = jQuery.extend({ basePath: defaultBasePath }, opts);
   
   Oahu.init({
     appId:      this.appId,
     debug:      opts.debug,
     environment:  opts.environment
   }, function() { self.onInit.apply(self) } );
-  
+
   Oahu.bind('Oahu:connect:login:success', function() { self.onLoginSuccess.apply(self, arguments) });
-  jQuery('.oahu_logged_in').hide();
-  jQuery('.oahu_logged_out').hide();
+  Oahu.bind('Oahu:connect:logout:success', function() { OahuPathe.prototype.logout.apply(self); } );
+  
+  jQuery('#oahu-box').show();
+
+  // DEBUG
+  Oahu.bind("connect", function() { console.warn(arguments) });  
 };
 
 OahuPathe.prototype.onInit = function () {
   var self = this;
-  // jQuery('.oahu_logged_out').show();
-  jQuery('.oahu_register').live('click', function() {
+  jQuery('.oahu_login_btn').live('click', function() {
     self.proceedToRegistration = true;
     if (!self.isLogged) {
-      console.warn("PATHE >> Calling oahuLogin");
       Oahu.connect.login();
     } else {
-      console.warn("PATHE >> calling createDrupalAccount");
       self.createDrupalAccount();
     }
   });
 };
 
+OahuPathe.prototype.logout = function() {
+  var logout_url = this.options.basePath + "logout";
+  console.warn("Redirect to ", logout_url);
+  window.location = logout_url;
+};
+
 OahuPathe.prototype.onLoginSuccess = function(msg, data) {
   var self = this;
-  this.oahuAccount = data;
+  self.oahuAccount = data;
+  console.warn("LoginSuccess", data, this);
   if (this.oahuAccount) {
 	  console.log("PATHE >> Oahu account retrieved in Pathe");
-    jQuery('#oahu_user').text(data.fullname);
+    jQuery('#oahu_user').text(data.name);
     jQuery('.oahu_logged_in').show();
     jQuery('.oahu_logged_out').hide();
     this.isLogged = true;
@@ -90,9 +96,11 @@ OahuPathe.prototype.createDrupalAccount = function() {
         data: registrationData,
         success: function(response) {
           console.warn("PATHE >> [DRUPAL] Success response: ", arguments);
+          alert("Registration OK");
           self.proceedToRegistration = false;
         },
         error: function(response) {
+          alert("Registration Error");
           console.warn("PATHE >> [DRUPAL] Error response: ", arguments);
         }
       });      
